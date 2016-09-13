@@ -1,0 +1,21 @@
+date: September 13, 2016
+meeting_type: ta # meeting_type can "group", "ta", or "instructor"
+attendance: [erickher satnamsi rchan6 jjoseph8
+absent: [<ubit4>, <ubit5>, <ubit6>]
+excused_absences: [ # Any legitamite excuses for absent team members
+  {ubit: <ubit5>, : reason: Had class. This was known through a Doodle poll before scheduling the meeting.},
+  {ubit: <ubit6>, reason: Abducted by aliens 15 minutes before meeting}
+  ]
+task_progress: [ # Created github account and added members to repository
+  {ubit: <erickher>, progress: Just talked about idea's and which will be interseting, },
+  {ubit: <satnamsi>, progress: Just talked about idea's and which will be interseting, },
+  {ubit: <rchan6>, progress: Just talked about idea's and which will be interseting,},
+  {ubit: <jjoseph>, progress: Just talked about idea's and which will be interseting,},
+  ]
+issues: [ # We all need to learn how to use hololens , as well as learn how to use visual studios.
+  {ubit: <ubit2>, issue: Needs to contact customer to clarify requirements that have not yet been dicussed.},
+  {ubit: <ubit6>, issue: After discussing with the TA it turns out that this problem is NP-Complete.}
+  ]
+Notes:  | # Anything covered in the meeting that doesn't fit elsewhere.
+  The group is considering a switch from Django to Ruby on Rails. Deliberations will continue.
+  TA suggested moving sensitive computation from the browser/client to the server for improved security.
