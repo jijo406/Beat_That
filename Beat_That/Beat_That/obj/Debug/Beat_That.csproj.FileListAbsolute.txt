@@ -1,0 +1,9 @@
+c:\users\suave011\documents\visual studio 2015\Projects\Beat_That\Beat_That\bin\Debug\Beat_That.exe.config
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\bin\Debug\Beat_That.exe
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\bin\Debug\Beat_That.pdb
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\obj\Debug\Beat_That.csprojResolveAssemblyReference.cache
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\obj\Debug\Beat_That.Form1.resources
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\obj\Debug\Beat_That.Properties.Resources.resources
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\obj\Debug\Beat_That.csproj.GenerateResource.Cache
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\obj\Debug\Beat_That.exe
+C:\Users\suave011\Documents\Visual Studio 2015\Projects\Beat_That\Beat_That\obj\Debug\Beat_That.pdb
