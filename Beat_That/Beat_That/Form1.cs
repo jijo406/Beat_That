@@ -52,7 +52,7 @@ namespace Beat_That
             }
             else
             {
-                MessageBox.Show("eat a dick Satnam, it's like Platinum with an S. Final Score: " + pattern.Count.ToString());
+                MessageBox.Show("You Lose :<(  Final Score: " + pattern.Count.ToString());
                 onInList = 0;
                 pattern = new List<int>();
                 new Thread(playBack).Start();
