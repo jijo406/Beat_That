@@ -1,0 +1,17 @@
+date: September 17, 2016
+meeting_type: Group
+attendance: [erickher satnamsi rchan6 jjoseph8
+absent: [N/A]
+excused_absences: [N/A]
+task_progress: [ 
+  {ubit: <erickher>, progress: worked on the gui for game prototype, such as box and game windows, },
+  {ubit: <satnamsi>, progress: worked on button action listeners, },
+  {ubit: <rchan6>, progress: worked on how to set the random flash sequences and delays needed for user response,},
+  {ubit: <jjoseph>, progress: worked on score display, message box at beginning and ending game and button colors,},
+  ]
+issues: [ 
+  {ubit: <jjoseph8>, issue: need to get the buttons to produce tones when pressed or if sequences is played.},
+  ]
+Notes:  | 
+  finished and recorded video for sprint 1 and uploaded to youtube. 
+  Next on to work with unity to create a intial protype of the game on hololens
