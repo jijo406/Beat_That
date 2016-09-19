@@ -1,19 +1,18 @@
 date: September 13, 2016
-meeting_type: ta # meeting_type can "group", "ta", or "instructor"
+meeting_type: ta 
 attendance: [erickher satnamsi rchan6 jjoseph8
-absent: [NA]
-excused_absences: [ # Any legitamite excuses for absent team members
-  NA
+absent: [N/A]
+excused_absences: [N/A]
+task_progress: [ 
+  # Created github account and added members to repository
+  {ubit: <erickher>, progress: picked visual studios as the coding platform, },
+  {ubit: <satnamsi>, progress: Contributed to the idea for levels, hidden level with songs, },
+  {ubit: <rchan6>, progress: Disscussed about the use of the Hololens,},
+  {ubit: <jjoseph>, progress: found tutorials for unity and visual studios to get a start on game,},
   ]
-task_progress: [ # Created github account and added members to repository
-  {ubit: <erickher>, progress: Just talked about idea's and which will be interseting,},
-  {ubit: <satnamsi>, progress: Just talked about idea's and which will be interseting,},
-  {ubit: <rchan6>,   progress: Just talked about idea's and which will be interseting,},
-  {ubit: <jjoseph>,  progress: Just talked about idea's and which will be interseting,},
-  ]
-issues: [ # We all need to learn how to use hololens , as well as learn how to use visual studios.
-  {ubit: <ubit2>, issue: Needs to contact customer to clarify requirements that have not yet been dicussed.},
-  {ubit: <ubit6>, issue: After discussing with the TA it turns out that this problem is NP-Complete.}
+issues: [ 
+  # We all need to learn how to use hololens , as well as learn how to use visual studios.
+  {ubit: <rchan6>, issue: Needs to get group time with hololens.},
   ]
 Notes:  | # Anything covered in the meeting that doesn't fit elsewhere.
-  The group is pivoting from developing game from python using pygame to c'#' to start off and are going to develope a hololens game with it.
+  Group changed from android game to hololens game, will make it way more interesting.
