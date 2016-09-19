@@ -1,0 +1,20 @@
+date: September 8, 2016
+meeting_type: Group
+attendance: [erickher, rchan6, jjoseph8, satnamsi]
+absent: [N/A]
+excused_absences: [N/A]
+task_progress: [ 
+  {ubit: <jjoseph8>, progress: installed pygame for python and voted for beat_that simon says game},
+  {ubit: <erickher>, progress: installed pygame, android studio, visual studio, and voted for simon says game},
+  {ubit: <satnamsi>, progress: intalled pygame and voted for simon says game},
+  {ubit: <rchan6>, progress:   pitched idea for poopenomcis, poop information app, installed pygame and Voted for poopenomics },
+  ]
+issues: [ 
+  {ubit: <ubit2>, issue: Needs to contact customer to clarify requirements that have not yet been dicussed.},
+  {ubit: <ubit6>, issue: After discussing with the TA it turns out that this problem is NP-Complete.}
+  ]
+Notes:  | 
+  first team metting, little introduction, pitched different ideas for project.
+  discussed availability.
+  Installation of pygame on macs for jjoseph8, rchan6, satnamsi came with issue of musical sounds being thrown off.  
+  erickher had issues installing on windows and had to install on ubuntu instead, audio seems to work fine.
