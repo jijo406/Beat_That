@@ -4,15 +4,15 @@ attendance: [erickher satnamsi rchan6 jjoseph8
 absent: [N/A]
 excused_absences: [N/A]
 task_progress: [ 
-  # Created github account and added members to repository
+  
   {ubit: <erickher>, progress: picked visual studios as the coding platform, },
   {ubit: <satnamsi>, progress: Contributed to the idea for levels, hidden level with songs, },
   {ubit: <rchan6>, progress: Disscussed about the use of the Hololens,},
-  {ubit: <jjoseph>, progress: found tutorials for unity and visual studios to get a start on game,},
+  {ubit: <jjoseph>, progress: Created github account and added members to repository},
   ]
 issues: [ 
-  # We all need to learn how to use hololens , as well as learn how to use visual studios.
   {ubit: <rchan6>, issue: Needs to get group time with hololens.},
+  {ubit: <erickher>,issue: needs to find tutorials for unity and visual studios to get a start on game,}
   ]
-Notes:  | # Anything covered in the meeting that doesn't fit elsewhere.
-  Group changed from android game to hololens game, will make it way more interesting.
+Notes:  | 
+  Group changed game from android game to hololens game, will make it way more interesting.
