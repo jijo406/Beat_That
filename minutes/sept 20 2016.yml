@@ -1,0 +1,31 @@
+date: September 20, 2016
+meeting_type: ta # meeting_type can "group", "ta", or "instructor"
+attendance: [<erickher>, <rchan6>, <satnamsi>, <ubit3>]
+absent: [<jjoseph8>, <ubit5>, <ubit6>]
+excused_absences: [ # Any legitamite excuses for absent team members
+  {ubit: <jjoseph8>, reason:had work 2pm-5pm},
+  ]
+task_progress: [ # All group members must be included here even if they haven't made any progress since the last meeting
+  {ubit: <erickher>, progress: Created GUI for sprint 1. },
+  {ubit: <jjoseph8>, progress: created the backend for what happens with the button clicks. },
+  {ubit: <rchan6>, progress: dual booted computer in order to run windows along with mac. },
+  {ubit: <satnamsi>, progress: recorded sprint 1 video and uploaded to youtube. },
+  ]
+issues: [ # Post any issues here. Issues that cannot be addressed by the group should especially be included
+  {ubit: <erickher>, issue: how to create new levels and adding buttons without using interface V.S.},
+  {ubit: <rchan6>, issue: Had trouble dual booting mac with windows. }
+  ]
+Notes:  |
+
+  game in hololens with additional levels
+  
+  have 2 implement the levels in vs
+    -levels                 --erick
+    -sound                  --satnam
+
+  2 for boxes in hololens
+
+  -create boxes in hololens --Reggie
+  -backend hololens         --Jobin
+
+  DY8MN-MHV2K-RTJH3-XVFTD-M7VYY
