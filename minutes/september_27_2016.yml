@@ -1,0 +1,18 @@
+date: September 27, 2016
+meeting_type: ta meeting
+attendance: [ satnamsi rchan6 jjoseph8
+absent: []
+excused_absences: [
+  {ubit: erickher : reason: He had to go back home to deal with family issues.},
+  ]
+task_progress: [
+  {ubit: <erickher>,  },
+  {ubit: <satnamsi>, learning how to get sound on game objects,getting used to unity/visual studios },
+  {ubit: <rchan6>, working on making game objects on unity for hololens and getting used to unity/visual studios},
+  {ubit: <jjoseph8>, still working on backend of hololens scrpiting,getting used to unity/visual studios},
+  ]
+issues: [ #  
+ {ubit: <jjoseph8>, issue: understanding multiple scripts and game object id.},
+  ]
+Notes:  | 
+  # Need to start to commit code on weekly basic's. 
