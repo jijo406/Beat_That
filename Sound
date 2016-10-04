@@ -1,0 +1,43 @@
+Public Class Form1
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        My.Computer.Audio.Play(My.Resources.button_2, AudioPlayMode.BackgroundLoop)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim sPath As String
+        Dim mySound As Media.SoundPlayer
+
+        sPath = "C:\Users\CSE442 Fall 2016\Desktop\button-4.wav"
+        mySound = New Media.SoundPlayer(sPath)
+        mySound.Play()
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim sPath As String
+        Dim mySound As Media.SoundPlayer
+
+        sPath = "C:\Users\CSE442 Fall 2016\Desktop\button-1.wav"
+        mySound = New Media.SoundPlayer(sPath)
+        mySound.Play()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim sPath As String
+        Dim mySound As Media.SoundPlayer
+
+        sPath = "C:\Users\CSE442 Fall 2016\Desktop\button-6.wav"
+        mySound = New Media.SoundPlayer(sPath)
+        mySound.Play()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim sPath As String
+        Dim mySound As Media.SoundPlayer
+
+        sPath = "C:\Users\CSE442 Fall 2016\Desktop\button-3.wav"
+        mySound = New Media.SoundPlayer(sPath)
+        mySound.Play()
+    End Sub
+End Class
