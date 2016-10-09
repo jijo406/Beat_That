@@ -1,0 +1,20 @@
+date: October 4, 2016
+meeting_type: ta meeting
+attendance: [ satnamsi rchan6 jjoseph8 erickher
+absent: []
+excused_absences: [
+  {ubit: },
+  ]
+task_progress: [
+  {ubit: <erickher> everyone must show work for their issues for sprint 2,},
+  {ubit: <satnamsi>, everyone must show work for their issues for sprint 2},
+  {ubit: <rchan6>, everyone must show work for their issues for sprint 2},
+  {ubit: <jjoseph8>, everyone must show work for their issues for sprint 2},
+  ]
+issues: [ #  
+ {ubit: <erickher> had an error 4567 where game would crash when running the hololens, 
+
+ 	},
+  ]
+Notes:  | 
+  # make sure we all have branches for each of ourselves
