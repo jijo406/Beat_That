@@ -1,0 +1,16 @@
+date: September 29, 2016
+meeting_type: ta meeting
+attendance: [ satnamsi rchan6 jjoseph8 erickher
+absent: []
+excused_absences: []
+task_progress: [
+  {ubit: <erickher>,  started on creating levels},
+  {ubit: <satnamsi>, got sound onto first level },
+  {ubit: <rchan6>, started creating start menu},
+  {ubit: <jjoseph8>, working on object flashing},
+  ]
+issues: [ #  
+ {ubit: <jjoseph8>, issue: counldnt get the flashing on objects
+ 		<rchan6>, button clicking not doing what it should be doing]}
+Notes: need to deploy on hololens | 
+  
