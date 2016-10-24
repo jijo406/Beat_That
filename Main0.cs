@@ -27,17 +27,15 @@ public class Main0 : MonoBehaviour
         RestartButton.SetActive(false);
 
         Red = GameObject.Find("Canvas/Cubes/Red0");
-        //Yellow = GameObject.Find("Canvas/Cubes/Yellow");
-        //Green = GameObject.Find("Canvas/Cubes/Green");
         Blue = GameObject.Find("Canvas/Cubes/Blue0");
-        //text =GameObject.Find("/Canvas/Score").GetComponent<Text>();
-        //text.text = "score: " + pattern.Count.ToString();
         if (countingCorrectPattern < 4)
         {
             int r = Random.Range(0, 2) * 2;
-            Debug.Log(r);
+            Debug.Log("adding to the patterns" + r);
             pattern.Add(r);
         }
+
+        Debug.Log("count of pattern " + pattern.Count);
 
         //Debug.Log(pattern[0]);
         StartCoroutine(playBack());
@@ -63,10 +61,13 @@ public class Main0 : MonoBehaviour
             {
                 if (pattern[p] == 0)
                 {
+                   
                     Red.GetComponent<Renderer>().material.color = Color.white;
                     yield return new WaitForSeconds(0.6f);
                     Red.transform.GetComponent<Renderer>().material.color = Color.red;
+               // tits transform.Rotate(Vector3.up, Time.deltaTime * 800, Space.World);
                     yield return new WaitForSeconds(0.3f);
+                    
                     continue;
                 }
               
@@ -96,13 +97,15 @@ public class Main0 : MonoBehaviour
         {
             onInList++;
             //countingCorrectPattern++;
-            Debug.Log(countingCorrectPattern);
+            Debug.Log("counting correct pattern " + countingCorrectPattern);
+            Debug.Log("oninlist " + onInList);
         }
         else
         {
             Debug.Log("you lose");
             onInList = 0;
             countingCorrectPattern = 1;
+
             pattern = new List<int>();
             Red.SetActive(false);
             Blue.SetActive(false);
@@ -111,10 +114,10 @@ public class Main0 : MonoBehaviour
             RestartButton.SetActive(true);
             //StartCoroutine(playBack());
         }
-        if (onInList >= pattern.Count)
+        if (onInList >= pattern.Count && pattern.Count != 0)
         {
             new WaitForSeconds(1);
-            int r = Random.Range(0, 1)*2;
+            int r = Random.Range(0, 2)*2;
             pattern.Add(r);
             onInList = 0;
             countingCorrectPattern++;
