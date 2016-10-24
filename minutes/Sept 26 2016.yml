@@ -1,0 +1,31 @@
+date: September 26, 2016
+meeting_type: Jesse
+attendance: [erickher, rchan6, jjoseph8, satnamsi]
+absent: [N/A]
+excused_absences: [N/A]
+task_progress: [ 
+  {ubit: <jjoseph8>, progress: Looking up how to click on hololens.},
+  {ubit: <erickher>, progress: Thinking about how to link up levels, keep the same pattern, and have a max score.},
+  {ubit: <satnamsi>, progress: Seeing how to add sound to buttons on unity.},
+  {ubit: <rchan6>, progress: determaining best way to set up start menu for hololens and what should be in start menu. },
+  ]
+issues: [ 
+  {ubit: <ubit2>, issue: },
+  {ubit: <ubit6>, issue: }
+  ]
+Notes:  | 
+  
+  have a box id, which when you click it it returns that box id
+  
+  maybe ask other group working on halolens about programming with halolens
+  
+  aks guy from robotics lab who worked on halolens over the summer
+  
+  sprint 4 have something to do with memory, where user inputs nickname and game tells them how they progress
+  
+  think about how we will deploy this game. setting up own server??? save data to text file (simple)???
+  different modes, sound off, faster blink or slower blink
+
+  making own beat, different bass, tempo, etc
+
+  enum instead of hard coding. 

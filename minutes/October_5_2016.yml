@@ -1,0 +1,17 @@
+date: October 5, 2016
+meeting_type: Group 
+attendance: [erickher satnamsi rchan6 jjoseph8
+absent: [N/A]
+excused_absences: [N/A]
+task_progress: [ 
+  
+  {ubit: <erickher>, progress: Created some scripts to test gameobject clicking, },
+  {ubit: <satnamsi>, progress: worked on spatial postioning on unity, },
+  {ubit: <rchan6>, progress: created button scripts for scenemanagement,},
+  {ubit: <jjoseph>, progress: wrote switch case statements for flash logic and created intial gameobjects},
+  ]
+issues: [ 
+  {ubit: <erickher>,issue: clicking affecting all gameobjects,}
+  ]
+Notes:  | 
+  Need to create build to deploy on hololens.
