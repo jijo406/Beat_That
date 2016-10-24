@@ -11,21 +11,24 @@ public class SpeechManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        keywords.Add("Reset world", () =>
-        {
-            // Call the OnReset method on every descendant object.
-            this.BroadcastMessage("OnReset");
-        });
-
-        keywords.Add("Drop Sphere", () =>
+        /* To select the cube, send message upwards Click action cs and then that calls Blue script to test the pattern. 
+           Not too sure where to actually put this.  On individual cubes or on each cube? TBD. */
+        keywords.Add("Select cube", () =>
         {
             var focusObject = GazeGestureManager.Instance.FocusedObject;
             if (focusObject != null)
             {
                 // Call the OnDrop method on just the focused object.
-                focusObject.SendMessage("OnDrop");
+                focusObject.SendMessage("onSelect");
             }
         });
+        /*
+         * Maybe add something that lets you quit the game all together. 
+        keywords.Add("Quit", () =>
+        {
+
+        });
+        */
 
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
