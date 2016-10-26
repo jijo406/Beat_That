@@ -1,0 +1,20 @@
+date: October 6, 2016
+meeting_type: Group 
+attendance: [erickher satnamsi rchan6 jjoseph8
+absent: [N/A]
+excused_absences: [N/A]
+task_progress: [ 
+  
+  {ubit: <erickher>, progress: used onmousedown to create gameobject interaction on unity and started on object click registering to game, },
+  {ubit: <satnamsi>, progress: created audio and also worked on object clicking aspect of the game to implement audio on object click, },
+  {ubit: <rchan6>, progress: created start menu with scripts for scenemanagement to load scene from menu to game as well as the playback loop if you lose to restart,},
+  {ubit: <jjoseph>, progress: fixed the flash animation scripts to include 1/2 second delay between flashes and changes from switch to if else statements},
+  ]
+issues: [ 
+  {ubit: <erickher>,issue: clicking affecting all gameobjects,}
+  {ubit: <jjoseph8>,issue: void type error when implementing waitforsecond command because it can't be called in a iterator block,}
+
+  ]
+Notes:  | 
+  Need to create build to deploy on hololens.
+  Need to tweak some codes to merge scripts.
