@@ -13,7 +13,7 @@ public class SpeechManager : MonoBehaviour
     {
         /* To select the cube, send message upwards Click action cs and then that calls Blue script to test the pattern. 
            Not too sure where to actually put this.  On individual cubes or on each cube? TBD. */
-        keywords.Add("Select cube", () =>
+        keywords.Add("Select", () =>
         {
             var focusObject = GazeGestureManager.Instance.FocusedObject;
             if (focusObject != null)
@@ -22,13 +22,14 @@ public class SpeechManager : MonoBehaviour
                 focusObject.SendMessage("onSelect");
             }
         });
-        /*
-         * Maybe add something that lets you quit the game all together. 
+       
+        // Maybe add something that lets you quit the game all together. 
         keywords.Add("Quit", () =>
         {
+            Application.Quit();
 
         });
-        */
+        
 
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
