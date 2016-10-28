@@ -14,6 +14,30 @@ public class CubeCommand : MonoBehaviour
 
         blue.pickACube(this.gameObject.name);
     }
+    
+    void onRed()
+    {
+        BlueScript blue = new BlueScript();
+        blue.pickACube("Red");
+    }
+    
+    void onBlue()
+    {
+        BlueScript blue = new BlueScript();
+        blue.pickACube("Blue");
+    }
+    
+    void onGreen()
+    {
+        BlueScript blue = new BlueScript();
+        blue.pickACube("Green");
+    }
+    
+    void onYellow()
+    {
+        BlueScript blue = new BlueScript();
+        blue.pickACube("Yellow");
+    }
 
     // Called by GazeGestureManager when the user performs a Select gesture
     
