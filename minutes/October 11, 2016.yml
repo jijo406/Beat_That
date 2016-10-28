@@ -1,0 +1,23 @@
+date: October 11, 2016
+meeting_type: ta
+attendance: [<erickher>, <rchan6>, <satnamsi>, <jjoseph8>]
+absent: [<>]
+excused_absences: [ 
+  {ubit: <>, reason: },
+  ]
+task_progress: [ 
+  {ubit: <erickher>, progress: Assgined Voice command },
+  {ubit: <jjoseph8>, progress: Spatial mapping user and user interactions ie get the allow for gesture implementation on hololens.},
+  {ubit: <rchan6>,   progress: Have game return the score that was currently played, start on data base for high score system},
+  {ubit: <satnamsi>, progress: Will try to get the boxes to move when they blink because it is hard to see when it binks!},
+  ]
+issues: [ 
+  {ubit: <jjoseph8>, issue: projects in 489, more time with hololens},
+  {ubit: <rchan6>, issue: projects in 489, more time with hololens}
+  {ubit: <erickher>, issue: projects in ops, more time with hololens}
+  ]
+Notes: |
+
+Delay from other projects will affect our start time for this sprint.
+
+  

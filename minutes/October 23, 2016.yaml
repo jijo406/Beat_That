@@ -1,0 +1,21 @@
+date: October 23, 2016
+meeting_type: ta
+attendance: [<erickher>, <rchan6>, <satnamsi>, <jjoseph8>]
+absent: [<>]
+excused_absences: [ 
+  {ubit: <>, reason: },
+  ]
+task_progress: [ 
+  {ubit: <erickher>, progress: Assgined Voice command for level 0 for red cube. },
+  {ubit: <jjoseph8>, progress: Spatial mapping done for start menu and level0 and got the gesture implementation for the cubes to work for test case},
+  {ubit: <rchan6>,   progress: bug with scoring on hololens, got scoring on unity},
+  {ubit: <satnamsi>, progress: Rotation working in test cases.},
+  ]
+issues: [ 
+  {ubit: <satnamsi>, issue: not rotating during flash sequence},
+  {ubit: <rchan6>, issue: Scoring not updating on hololens and the restart button not popping up after}
+  {ubit: <erickher>, issue: Scenemanager not changing to level2}
+  ]
+Notes: |
+
+Need hololens Friday to do final recording for this sprint
