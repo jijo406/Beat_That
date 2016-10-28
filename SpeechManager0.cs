@@ -23,12 +23,12 @@ public class SpeechManager0 : MonoBehaviour
             }
         });
 
-        keywords.Add("Red", () =>
+        keywords.Add("Select red", () =>
         {
         this.BroadcastMessage("onRed0");
          });
         
-        keywords.Add("Blue", () => 
+        keywords.Add("Select blue", () => 
         {
             this.BroadcastMessage("onBlue0");
         });
