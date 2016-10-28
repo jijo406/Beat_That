@@ -12,14 +12,17 @@ public class Main0 : MonoBehaviour
     private GameObject Red;
     private GameObject Blue;
     private GameObject RestartButton;
-    private GameObject CounterScore;
+    private  GameObject CounterScore;
     flashanimation flashfs = new flashanimation();
 
     //________________________
     //reggies counting score for display during game
-    public Text countScore;
-    public Text gameOver;
-    private static int count;
+    Transform countscore;
+    Transform playerscore;
+    //public Text score;
+    private static int count=0;
+    private static int score;
+    //private bool updatescore;
     //_________________________
 
     static int onInList;
@@ -33,19 +36,22 @@ public class Main0 : MonoBehaviour
     void Start()
     {
         RestartButton = GameObject.Find("Canvas/Restart");
-        RestartButton.SetActive(false);
+        RestartButton.GetComponent<Button>().interactable = false;
 
         
 
         //________________________________
-        //count = 0;
-        //countScore.text = "Count: " + count.ToString();
-        //gameOver.text = "";
+        
+        //updatescore = false;
+        countscore = GameObject.Find("Canvas/CounterScore").transform;
+        playerscore = GameObject.Find("Canvas/playerScore").transform;
+        countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+        //playerscore = GameObject.Find("Cavas/playerScore").transform;
+        
         //________________________________
 
         Red = GameObject.Find("Canvas/Cubes/Red0");
-        CounterScore = GameObject.Find("Canvas/CounterScore");
-        countScore = CounterScore.GetComponent<Text>();
+        //score = countScore.text;
         Blue = GameObject.Find("Canvas/Cubes/Blue0");
         if (countingCorrectPattern == 1)
         {
@@ -66,7 +72,13 @@ public class Main0 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+       /* if (updatescore == true)
+        {
+            count = count + 5;
+            countscore = GameObject.Find("Canvas/CounterScore").transform;
+            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+            updatescore = false;
+        }*/
     }
 
     public void atart(IEnumerator coroutineMethod)
@@ -78,49 +90,16 @@ public class Main0 : MonoBehaviour
         }, false);
         play_Back = false;
     }
-
-    
-
-   /* IEnumerator playBack()
+    public void notatart(IEnumerator coroutineMethod)
     {
-        Debug.Log("in playback");
         play_Back = true;
-        while (pb) {
-            if (pattern != null)
-            {
-                Debug.Log("pattern count: " + pattern.Count);
-                for (int p = 0; p < pattern.Count; p++)
-                {
-                    if (pattern[p] == 0)
-                    {
-                        Debug.Log("made it to red");
-                        //   Red.transform.Rotate(Vector3.up, Time.deltaTime * 30, Space.World);
-                        Red.GetComponent<Renderer>().material.color = Color.white;
-                        yield return new WaitForSeconds(0.6f);
-                        Red.transform.GetComponent<Renderer>().material.color = Color.red;
-                        yield return new WaitForSeconds(0.3f);
-
-                    }
-
-                    else if (pattern[p] == 2)
-                    {
-                        Debug.Log("made it to blue");
-                        Blue.GetComponent<Renderer>().material.color = Color.white;
-                        yield return new WaitForSeconds(0.6f);
-                        Blue.GetComponent<Renderer>().material.color = Color.blue;
-                        yield return new WaitForSeconds(0.3f);
-
-                    }
-                 }
-               }
-            yield return new WaitForSeconds(0.7f);
-            pb = false;
-        }
-        
+        UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+        {
+            StopCoroutine(coroutineMethod);
+        }, false);
         play_Back = false;
+    }
 
-
-    }*/
 
     public void testCorrect(int x)
     {
@@ -135,8 +114,11 @@ public class Main0 : MonoBehaviour
         {
             Debug.Log("in pattern oninlist");
             onInList++;
-
-
+            //___________________
+            //updatescore = true;
+           // Update();
+            //__________________
+           
             //countingCorrectPattern++;
             Debug.Log("counting correct pattern " + countingCorrectPattern);
             Debug.Log("oninlist " + onInList);
@@ -150,11 +132,16 @@ public class Main0 : MonoBehaviour
             pattern = new List<int>();
             Red.SetActive(false);
             Blue.SetActive(false);
+            RestartButton.GetComponent<Button>().interactable = true;
             //Yellow.SetActive(false);
             //Green.SetActive(false);
             //___________________________
-            RestartButton.SetActive(true);
-            gameOver.text = "Score: " + count.ToString();
+            score = count;
+            
+            playerscore.GetComponent<Text>().text = "Score: " + score.ToString();
+
+            
+            
             //___________________________
 
             //StartCoroutine(playBack());
@@ -163,6 +150,13 @@ public class Main0 : MonoBehaviour
 
         if (onInList >= pattern.Count && pattern.Count != 0)
         {
+            count = count + 5;
+            Debug.Log("before");
+            Debug.Log(count);
+            //countscore = GameObject.Find("Canvas/CounterScore").transform;
+            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+            Debug.Log("after");
+            Debug.Log(count);
             int r = Random.Range(0, 2)*2;
             pattern.Add(r);
             onInList = 0;
@@ -176,15 +170,10 @@ public class Main0 : MonoBehaviour
             else{
                 Debug.Log("the number of correct pattern less than 4 " + countingCorrectPattern);
 
-                //__________________________
-                count = count + 1;
-                Debug.Log("score "+ count);
-                countScore.text = "Count: " + count.ToString();
-                //__________________________
+                //SceneManager.LoadScene("level0");
+                notatart(flashfs.playBack(pattern, Red, Blue));
+                atart(flashfs.playBack(pattern, Red, Blue));
 
-                SceneManager.LoadScene("level0");
-                // atart(flashfs.playBack(pattern, Red, Blue));
-                
             }   
 
         }
