@@ -14,18 +14,29 @@ public class Main : MonoBehaviour
     private GameObject Green;
     private GameObject Blue;
     private GameObject RestartButton;
-    public Text text;
+    flashanimation2 flashfs = new flashanimation2();
+    Transform countscore;
+    Transform playerscore;
     public Main0 main0;
 
+    private static int count;
+    private static int score;
+
     int onInList = 0;
-    static List<int> pattern = new List<int>();
+    static List<int> pattern;
     //static int countingCorrectPattern = 1;
     bool play_Back = false;
 
     void Start()
     {
+        pattern = main0.getPattern();
         RestartButton = GameObject.Find("Canvas/Restart");
         RestartButton.SetActive(false);
+
+        countscore = GameObject.Find("Canvas/CounterScore").transform;
+        playerscore = GameObject.Find("Canvas/playerScore").transform;
+        Debug.Log(main0.getScore());
+        countscore.GetComponent<Text>().text = "Score: " + main0.getScore().ToString();
 
         Red = GameObject.Find("Canvas/Cubes/Red");
         Yellow = GameObject.Find("Canvas/Cubes/Yellow");
@@ -35,9 +46,9 @@ public class Main : MonoBehaviour
         //text.text = "score: " + pattern.Count.ToString();
         int r = Random.Range(0, 4);
         pattern.Add(r);
-        
+
         //Debug.Log(pattern[0]);
-        StartCoroutine(playBack());
+        atart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
 
         // playBack();
 
@@ -46,57 +57,30 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+    
 
     }
 
-    IEnumerator playBack()
+    public void atart(IEnumerator coroutineMethod)
     {
         play_Back = true;
-        if (pattern != null)
+        UnityEngine.WSA.Application.InvokeOnAppThread(() =>
         {
-            for (int p = 0; p < pattern.Count; p++)
-            {
-                if (pattern[p] == 0)
-                { 
-                    Red.GetComponent<Renderer>().material.color = Color.white;
-                    yield return new WaitForSeconds(0.6f);
-                    Red.transform.GetComponent<Renderer>().material.color = Color.red;
-                    yield return new WaitForSeconds(0.3f);
-                    continue;
-                }
-                else if (pattern[p] == 1)
-                {
-                    Green.GetComponent<Renderer>().material.color = Color.white;
-                    yield return new WaitForSeconds(0.6f);
-                    Green.GetComponent<Renderer>().material.color = Color.green;
-                    yield return new WaitForSeconds(0.3f);
-                    continue;
-                }
-                else if (pattern[p] == 2)
-                {
-                    Blue.GetComponent<Renderer>().material.color = Color.white;
-                    yield return new WaitForSeconds(0.6f);
-                    Blue.GetComponent<Renderer>().material.color = Color.blue;
-                    yield return new WaitForSeconds(0.3f);
-                    continue;
-                }
-                else if (pattern[p] == 3)
-                {
-                    Yellow.GetComponent<Renderer>().material.color = Color.white;
-                    yield return new WaitForSeconds(0.6f);
-                    Yellow.GetComponent<Renderer>().material.color = Color.yellow;
-                    yield return new WaitForSeconds(0.3f);
-                    continue;
-
-                }
-       
-            yield return new WaitForSeconds(0.7f);
-            }
-            play_Back = false;
-        }
+            StartCoroutine(coroutineMethod);
+        }, false);
+        play_Back = false;
     }
+    public void notatart(IEnumerator coroutineMethod)
+    {
+        play_Back = true;
+        UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+        {
+            StopCoroutine(coroutineMethod);
+        }, false);
+        play_Back = false;
+    }
+
+   
 
     public void testCorrect(int x)
     {
@@ -113,8 +97,13 @@ public class Main : MonoBehaviour
         else
         {
             Debug.Log("you lose");
+            score = count;
+            playerscore.GetComponent<Text>().text = "Score: " + score.ToString();
+
             onInList = 0;
             main0.setReset();
+            main0.resetScore();
+            main0.resetpattern();
             pattern = new List<int>();
             Red.SetActive(false);
             Blue.SetActive(false);
@@ -123,8 +112,18 @@ public class Main : MonoBehaviour
             RestartButton.SetActive(true);
             //StartCoroutine(playBack());
         }
-        if(onInList >= pattern.Count)
+        if(onInList >= pattern.Count && pattern.Count != 0)
         {
+
+            main0.setScore();
+            count = main0.getScore();
+            Debug.Log("before");
+            Debug.Log(count);
+            //countscore = GameObject.Find("Canvas/CounterScore").transform;
+            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+            Debug.Log("after");
+            Debug.Log(count);
+
             new WaitForSeconds(1);
             int r = Random.Range(0, 4);
             pattern.Add(r);
@@ -134,8 +133,9 @@ public class Main : MonoBehaviour
             {
                 SceneManager.LoadScene("BeatThatProtoLevel2");
             }
-            StartCoroutine(playBack());
-            
+            notatart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
+            atart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
+
         }
  
     }
