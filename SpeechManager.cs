@@ -22,12 +22,30 @@ public class SpeechManager : MonoBehaviour
                 focusObject.SendMessage("onSelect");
             }
         });
-       
+        
+        keywords.Add("Red", () => 
+        {
+            this.BroadcastMessage("onRed"));
+        });
+        
+        keywords.Add("Blue", () => 
+        {
+            this.BroadcastMessage("onBlue"));
+        });
+          
+        keywords.Add("Green", () => 
+        {
+            this.BroadcastMessage("onGreen"));
+        });
+      
+        keywords.Add("Yellow", () => 
+        {
+            this.BroadcastMessage("onYellow"));
+        });
         // Maybe add something that lets you quit the game all together. 
         keywords.Add("Quit", () =>
         {
             Application.Quit();
-
         });
         
 
