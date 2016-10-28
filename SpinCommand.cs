@@ -55,3 +55,4 @@ public class SpinCommand : MonoBehaviour
         }
     }
 }
+// Tired to get boxed rotating on blink with this but it did not work gotta figure out another way,
