@@ -23,27 +23,27 @@ public class SpeechManager : MonoBehaviour
             }
         });
         
-        keywords.Add("Red", () => 
+        keywords.Add("Select red", () => 
         {
-            this.BroadcastMessage("onRed"));
+            this.BroadcastMessage("onRed");
         });
         
-        keywords.Add("Blue", () => 
+        keywords.Add("Select blue", () => 
         {
-            this.BroadcastMessage("onBlue"));
+            this.BroadcastMessage("onBlue");
         });
           
-        keywords.Add("Green", () => 
+        keywords.Add("Select green", () => 
         {
-            this.BroadcastMessage("onGreen"));
+            this.BroadcastMessage("onGreen");
         });
       
-        keywords.Add("Yellow", () => 
+        keywords.Add("Select yellow", () => 
         {
-            this.BroadcastMessage("onYellow"));
+            this.BroadcastMessage("onYellow");
         });
         // Maybe add something that lets you quit the game all together. 
-        keywords.Add("Quit", () =>
+        keywords.Add("Quit game", () =>
         {
             Application.Quit();
         });
