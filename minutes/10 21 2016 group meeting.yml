@@ -1,0 +1,20 @@
+date: October 21, 2016
+meeting_type: Group
+attendance: [<erickher>, <rchan6>, <satnamsi>, <jjoseph8>]
+absent: [<>]
+excused_absences: [ # Any legitamite excuses for absent team members
+  {ubit: <>, reason: },
+  ]
+task_progress: [ # All group members must be included here even if they haven't made any progress since the last meeting
+  {ubit: <erickher>, progress: Got the "quit" working on the Hololens. Worked out bug with pattern starting with 2 at the beginning after losing. },
+  {ubit: <jjoseph8>, progress: Got spacial mapping and worked out code to run with ienumerator. },
+  {ubit: <satnamsi>, progress: Tried some code that made the boxes spin but didn't work correctly. },
+  {ubit: <rchan6>, progress:   Had start menu working properly, and able to update text view but not the score, yet. },
+  ]
+issues: [ # Post any issues here. Issues that cannot be addressed by the group should especially be included
+  {ubit: <erickher>, issue: Need more time with Hololens. },
+  {ubit: <jjoseph8>, issue: Need more time with Hololens. }
+  ]
+Notes:  |
+
+MORE TIME WITH THE HOLOLENS
