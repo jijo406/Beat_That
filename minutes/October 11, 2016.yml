@@ -6,8 +6,8 @@ excused_absences: [
   {ubit: <>, reason: },
   ]
 task_progress: [ 
-  {ubit: <erickher>, progress: Assgined Voice command },
-  {ubit: <jjoseph8>, progress: Spatial mapping user and user interactions ie get the allow for gesture implementation on hololens.},
+  {ubit: <erickher>, progress: Assgined to do Voice command for hololens.},
+  {ubit: <jjoseph8>, progress: Spatial mapping and user interactions ie get the allow for gesture implementation on hololens.},
   {ubit: <rchan6>,   progress: Have game return the score that was currently played, start on data base for high score system},
   {ubit: <satnamsi>, progress: Will try to get the boxes to move when they blink because it is hard to see when it binks!},
   ]
