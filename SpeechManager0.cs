@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
-public class SpeechManager : MonoBehaviour
+public class SpeechManager0 : MonoBehaviour
 {
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
@@ -22,15 +22,15 @@ public class SpeechManager : MonoBehaviour
                 focusObject.SendMessage("onSelect");
             }
         });
-        
-        keywords.Add("Red", () => 
+
+        keywords.Add("Red", () =>
         {
-            this.BroadcastMessage("onRed0"));
-        });
+        this.BroadcastMessage("onRed0");
+         });
         
         keywords.Add("Blue", () => 
         {
-            this.BroadcastMessage("onBlue0"));
+            this.BroadcastMessage("onBlue0");
         });
         // Maybe add something that lets you quit the game all together. 
         keywords.Add("Quit", () =>
@@ -48,11 +48,11 @@ public class SpeechManager : MonoBehaviour
     }
 
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
+{
+    System.Action keywordAction;
+    if (keywords.TryGetValue(args.text, out keywordAction))
     {
-        System.Action keywordAction;
-        if (keywords.TryGetValue(args.text, out keywordAction))
-        {
-            keywordAction.Invoke();
-        }
+        keywordAction.Invoke();
     }
+}
 }
