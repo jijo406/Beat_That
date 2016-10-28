@@ -12,14 +12,16 @@ public class Main0 : MonoBehaviour
     private GameObject Red;
     private GameObject Blue;
     private GameObject RestartButton;
-    private  GameObject CounterScore;
     flashanimation flashfs = new flashanimation();
 
     //________________________
     //reggies counting score for display during game
     Transform countscore;
+    Transform playerscore;
     //public Text score;
-    private static int count;
+    private static int count=0;
+    private static int score;
+    public getSet m = new getSet();
     //private bool updatescore;
     //_________________________
 
@@ -34,15 +36,18 @@ public class Main0 : MonoBehaviour
     void Start()
     {
         RestartButton = GameObject.Find("Canvas/Restart");
-        RestartButton.SetActive(false);
+        RestartButton.GetComponent<Button>().interactable = false;
 
         
 
         //________________________________
-        count = 0;
+        
         //updatescore = false;
         countscore = GameObject.Find("Canvas/CounterScore").transform;
+        playerscore = GameObject.Find("Canvas/playerScore").transform;
         countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+        //playerscore = GameObject.Find("Cavas/playerScore").transform;
+        
         //________________________________
 
         Red = GameObject.Find("Canvas/Cubes/Red0");
@@ -85,6 +90,15 @@ public class Main0 : MonoBehaviour
         }, false);
         play_Back = false;
     }
+    public void notatart(IEnumerator coroutineMethod)
+    {
+        play_Back = true;
+        UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+        {
+            StopCoroutine(coroutineMethod);
+        }, false);
+        play_Back = false;
+    }
 
 
     public void testCorrect(int x)
@@ -118,10 +132,15 @@ public class Main0 : MonoBehaviour
             pattern = new List<int>();
             Red.SetActive(false);
             Blue.SetActive(false);
+            RestartButton.GetComponent<Button>().interactable = true;
             //Yellow.SetActive(false);
             //Green.SetActive(false);
             //___________________________
-            RestartButton.SetActive(true);
+            score = count;
+            
+            playerscore.GetComponent<Text>().text = "Score: " + score.ToString();
+
+            
             
             //___________________________
 
@@ -132,14 +151,19 @@ public class Main0 : MonoBehaviour
         if (onInList >= pattern.Count && pattern.Count != 0)
         {
             count = count + 5;
-            countscore = GameObject.Find("Canvas/CounterScore").transform;
+            Debug.Log("before");
+            Debug.Log(count);
+            //countscore = GameObject.Find("Canvas/CounterScore").transform;
             countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+            Debug.Log("after");
+            Debug.Log(count);
             int r = Random.Range(0, 2)*2;
             pattern.Add(r);
             onInList = 0;
             countingCorrectPattern++;
             if(countingCorrectPattern >3)
             {
+               
                 Debug.Log("counting correct over 3 " + countingCorrectPattern);
                 SceneManager.LoadScene("BeatMyApp");
             }
@@ -147,9 +171,10 @@ public class Main0 : MonoBehaviour
             else{
                 Debug.Log("the number of correct pattern less than 4 " + countingCorrectPattern);
 
-                SceneManager.LoadScene("level0");
-                // atart(flashfs.playBack(pattern, Red, Blue));
-                
+                //SceneManager.LoadScene("level0");
+                notatart(flashfs.playBack(pattern, Red, Blue));
+                atart(flashfs.playBack(pattern, Red, Blue));
+
             }   
 
         }
@@ -169,4 +194,26 @@ public class Main0 : MonoBehaviour
     {
         countingCorrectPattern = 1;
     }
+    public int getScore()
+    {
+        return count;
+    }
+
+    public void setScore()
+    {
+        count = count+5;
+    }
+    public void resetScore()
+    {
+        count = 0;
+    }
+    public List<int> getPattern()
+    {
+        return pattern;
+    }
+    public void resetpattern()
+    {
+        pattern = new List<int>();
+    }
+    
 }

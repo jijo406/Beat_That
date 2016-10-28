@@ -5,17 +5,7 @@ using System.Collections.Generic;
 
 public class flashanimation {
 
-    
-    void Start () {
-      
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+   
     public IEnumerator playBack(List<int> pattern, GameObject Red, GameObject Blue)
     {
         Debug.Log("in playback");
@@ -28,9 +18,13 @@ public class flashanimation {
                 {
                     if (pattern[p] == 0)
                     {
-                        Debug.Log("made it to red");
-                        //   Red.transform.Rotate(Vector3.up, Time.deltaTime * 30, Space.World);
-                        Red.GetComponent<Renderer>().material.color = Color.white;
+                    Debug.Log("made it to red");
+
+                  
+                 //Red.GetComponent<Renderer>().material.color = Color.red;
+                 // Red.transform.Rotate(Vector3.up, Time.deltaTime * 30, Space.World);
+
+                    Red.GetComponent<Renderer>().material.color = Color.white;
                         yield return new WaitForSeconds(0.6f);
                         Red.transform.GetComponent<Renderer>().material.color = Color.red;
                         yield return new WaitForSeconds(0.3f);
@@ -46,9 +40,11 @@ public class flashanimation {
                         yield return new WaitForSeconds(0.3f);
 
                     }
-                }
+                
+            }
             }
         yield return new WaitForSeconds(0.7f);
+
 
 
     }
