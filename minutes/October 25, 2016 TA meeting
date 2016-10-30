@@ -1,0 +1,18 @@
+date: October 25, 2016
+meeting_type: ta meeting
+attendance: [ satnamsi rchan6 jjoseph8 erickher
+absent: []
+excused_absences: [
+  {ubit: },
+  ]
+task_progress: [
+  {ubit: <erickher> fixed code for select voice command},
+  {ubit: <satnamsi>, updated code for object movement, tested on first level was half working},
+  {ubit: <rchan6>, got scoreboard up with player current score on first level},
+  {ubit: <jjoseph8>, implemented spatial mapping for start menu},
+  ]
+issues: [ #  
+ {ubit:},
+  ]
+Notes:  | 
+  # 

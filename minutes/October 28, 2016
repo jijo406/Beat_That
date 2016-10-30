@@ -1,0 +1,19 @@
+date: October 28, 2016
+meeting_type: ta meeting
+attendance: [ satnamsi rchan6 jjoseph8 erickher
+absent: []
+excused_absences: [
+  {ubit: },
+  ]
+task_progress: [
+  {ubit: <erickher> writen code for voice command for "red", "yellow","green" and "blue" but couldnt test with the hololens,},
+  {ubit: <satnamsi>, got object to rotate while it is "blinking", for all levels},
+  {ubit: <rchan6>, got scoreboard up for all level and score of the player when they lose will show},
+  {ubit: <jjoseph8>, spatial mapping for all scene works correctly and added class to use for high score in next sprint },
+  ]
+issues: [ #  
+ {	needed more time with the hololens
+ 	could not get video of game with the hololens	
+ },
+  ]
+Notes:  | get more time with hololens
