@@ -11,19 +11,17 @@ public class Main0 : MonoBehaviour
     // Use this for initialization
     private GameObject Red;
     private GameObject Blue;
+    private GameObject Yellow;
+    private GameObject Green;
     private GameObject RestartButton;
     flashanimation flashfs = new flashanimation();
 
-    //________________________
-    //reggies counting score for display during game
     Transform countscore;
     Transform playerscore;
     //public Text score;
     private static int count=0;
     private static int score;
     public getSet m = new getSet();
-    //private bool updatescore;
-    //_________________________
 
     static int onInList;
     static List<int> pattern = new List<int>();
@@ -35,23 +33,22 @@ public class Main0 : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("dkjflskjfkldsfjdslkfjsdlkfjdslkfjdslkfjdslkfjdslfkjdslfjdslfjdsfdlsfj");
+
         RestartButton = GameObject.Find("Canvas/Restart");
         RestartButton.GetComponent<Button>().interactable = false;
 
-        
-
-        //________________________________
-        
-        //updatescore = false;
         countscore = GameObject.Find("Canvas/CounterScore").transform;
         playerscore = GameObject.Find("Canvas/playerScore").transform;
         countscore.GetComponent<Text>().text = "Score: " + count.ToString();
-        //playerscore = GameObject.Find("Cavas/playerScore").transform;
-        
-        //________________________________
-
+        Yellow = GameObject.Find("Canvas/Cubes/Yellow");
+        Green = GameObject.Find("Canvas/Cubes/Green");
+        if (countingCorrectPattern <= 3)
+        {
+            Yellow.SetActive(false);
+            Green.SetActive(false);
+        }else
         Red = GameObject.Find("Canvas/Cubes/Red0");
-        //score = countScore.text;
         Blue = GameObject.Find("Canvas/Cubes/Blue0");
         if (countingCorrectPattern == 1)
         {
@@ -61,24 +58,14 @@ public class Main0 : MonoBehaviour
         }
 
         Debug.Log("count of pattern " + pattern.Count);
-
-        //Debug.Log(pattern[0]);
-        //atart();
-        atart(flashfs.playBack(pattern, Red, Blue));
-        // playBack();
+        atart(flashfs.playBack(pattern, Red, Blue, Green, Yellow));
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       /* if (updatescore == true)
-        {
-            count = count + 5;
-            countscore = GameObject.Find("Canvas/CounterScore").transform;
-            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
-            updatescore = false;
-        }*/
+       
     }
 
     public void atart(IEnumerator coroutineMethod)
@@ -92,6 +79,7 @@ public class Main0 : MonoBehaviour
     }
     public void notatart(IEnumerator coroutineMethod)
     {
+        Debug.Log("inside notatart");
         play_Back = true;
         UnityEngine.WSA.Application.InvokeOnAppThread(() =>
         {
@@ -103,9 +91,8 @@ public class Main0 : MonoBehaviour
 
     public void testCorrect(int x)
     {
-        Debug.Log("this is the value of onIntList" + onInList);
+        Debug.Log("this is the value of onIntList " + onInList);
         Debug.Log("pattern to test: " + x);
-        Debug.Log("this is the pattern on the list: " + pattern[onInList]);
         if (play_Back == true)
         {
             return;
@@ -114,12 +101,7 @@ public class Main0 : MonoBehaviour
         {
             Debug.Log("in pattern oninlist");
             onInList++;
-            //___________________
-            //updatescore = true;
-           // Update();
-            //__________________
-           
-            //countingCorrectPattern++;
+            
             Debug.Log("counting correct pattern " + countingCorrectPattern);
             Debug.Log("oninlist " + onInList);
         }
@@ -128,23 +110,25 @@ public class Main0 : MonoBehaviour
             Debug.Log("you lose");
             onInList = 0;
             countingCorrectPattern = 1;
-
+            resetScore();
             pattern = new List<int>();
+            Debug.Log("before setting active");
+            Red = GameObject.Find("Canvas/Cubes/Red0");
+           
+            Blue = GameObject.Find("Canvas/Cubes/Blue0");
             Red.SetActive(false);
+            
             Blue.SetActive(false);
+            RestartButton = GameObject.Find("Canvas/Restart");
             RestartButton.GetComponent<Button>().interactable = true;
-            //Yellow.SetActive(false);
-            //Green.SetActive(false);
-            //___________________________
+
+            Debug.Log("after setting active");
+           
             score = count;
-            
+            Debug.Log("before getting component");
             playerscore.GetComponent<Text>().text = "Score: " + score.ToString();
+            Debug.Log("after getting component");
 
-            
-            
-            //___________________________
-
-            //StartCoroutine(playBack());
         }
 
 
@@ -153,29 +137,32 @@ public class Main0 : MonoBehaviour
             count = count + 5;
             Debug.Log("before");
             Debug.Log(count);
-            //countscore = GameObject.Find("Canvas/CounterScore").transform;
-            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+
             Debug.Log("after");
             Debug.Log(count);
-            int r = Random.Range(0, 2)*2;
+            int r;
+            if (countingCorrectPattern <= 3)
+            {
+                r = Random.Range(0, 2) * 2;
+            }else
+            {
+                r = Random.Range(0, 4);
+            }
             pattern.Add(r);
             onInList = 0;
             countingCorrectPattern++;
-            if(countingCorrectPattern >3)
+
+            /*if (countingCorrectPattern > 3)
             {
-               
+
                 Debug.Log("counting correct over 3 " + countingCorrectPattern);
                 SceneManager.LoadScene("BeatMyApp");
-            }
-            
-            else{
-                Debug.Log("the number of correct pattern less than 4 " + countingCorrectPattern);
 
-                //SceneManager.LoadScene("level0");
-                notatart(flashfs.playBack(pattern, Red, Blue));
-                atart(flashfs.playBack(pattern, Red, Blue));
-
-            }   
+            }*/
+            //else{
+            SceneManager.LoadScene("level0");
+                Debug.Log("made it past notatart and load scene and atart");
+           // }   
 
         }
 
