@@ -29,6 +29,7 @@ public class Main : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("starting beat my app main.");
         pattern = main0.getPattern();
         RestartButton = GameObject.Find("Canvas/Restart");
         RestartButton.SetActive(false);
@@ -105,6 +106,11 @@ public class Main : MonoBehaviour
             main0.resetScore();
             main0.resetpattern();
             pattern = new List<int>();
+            Red = GameObject.Find("Canvas/Cubes/Red");
+            Yellow = GameObject.Find("Canvas/Cubes/Yellow");
+            Green = GameObject.Find("Canvas/Cubes/Green");
+            Blue = GameObject.Find("Canvas/Cubes/Blue");
+            RestartButton = GameObject.Find("Canvas/Restart");
             Red.SetActive(false);
             Blue.SetActive(false);
             Yellow.SetActive(false);
@@ -129,12 +135,13 @@ public class Main : MonoBehaviour
             pattern.Add(r);
             onInList = 0;
             main0.setCountCorrectPattern();
-            if(main0.getCountCorrectPattern() > 7)
+            /*if(main0.getCountCorrectPattern() > 7)
             {
                 SceneManager.LoadScene("BeatThatProtoLevel2");
-            }
-            notatart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
-            atart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
+            }*/
+            SceneManager.LoadScene("BeatMyApp");
+            //notatart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
+            //atart(flashfs.playBack(pattern, Red, Blue,Green,Yellow));
 
         }
  
