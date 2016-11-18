@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class Main0 : MonoBehaviour
 {
@@ -11,74 +12,87 @@ public class Main0 : MonoBehaviour
     // Use this for initialization
     private GameObject Red;
     private GameObject Blue;
+    private GameObject Yellow;
+    private GameObject Green;
     private GameObject RestartButton;
     flashanimation flashfs = new flashanimation();
 
-    //________________________
-    //reggies counting score for display during game
     Transform countscore;
     Transform playerscore;
+    Transform Highscore;
     //public Text score;
-    private static int count=0;
+    private static int count = 0;
     private static int score;
-    public getSet m = new getSet();
-    //private bool updatescore;
-    //_________________________
+
+
 
     static int onInList;
     static List<int> pattern = new List<int>();
     static int countingCorrectPattern = 1;
     bool play_Back = false;
 
+    string[] previousscore;
+    static int HighScore;
+    static string nick;
 
-    
 
     void Start()
     {
+        
+        Green = GameObject.Find("Canvas/Cubes/Green");
+        Red = GameObject.Find("Canvas/Cubes/Red0");
+        Blue = GameObject.Find("Canvas/Cubes/Blue0");
+        Yellow = GameObject.Find("Canvas/Cubes/Yellow");
+
+        
+
         RestartButton = GameObject.Find("Canvas/Restart");
         RestartButton.GetComponent<Button>().interactable = false;
 
-        
-
-        //________________________________
-        
-        //updatescore = false;
         countscore = GameObject.Find("Canvas/CounterScore").transform;
+        Highscore = GameObject.Find("Canvas/HighScore").transform;
         playerscore = GameObject.Find("Canvas/playerScore").transform;
-        countscore.GetComponent<Text>().text = "Score: " + count.ToString();
-        //playerscore = GameObject.Find("Cavas/playerScore").transform;
-        
-        //________________________________
 
-        Red = GameObject.Find("Canvas/Cubes/Red0");
-        //score = countScore.text;
-        Blue = GameObject.Find("Canvas/Cubes/Blue0");
+        string line = File.ReadAllText(@"Assets\Scripts\TextFile2.txt");
+        string s = File.ReadAllText(@"Assets\Scripts\TextFile1.txt");
+        previousscore = line.Split(',');
+       
+        nick = s;
+
+        if (previousscore.Length > 1)
+        {
+            int.TryParse(previousscore[1], out HighScore);
+        }
+        Debug.Log(HighScore);
+        countscore.GetComponent<Text>().text = nick+"'s"+" Score: " + count.ToString();
+
+        
+        
+
+        if (countingCorrectPattern <= 3)
+        {
+            Yellow.SetActive(false);
+            Green.SetActive(false);
+        }
+        
+        
         if (countingCorrectPattern == 1)
         {
-            int r = Random.Range(0, 2) * 2;
+            int r = Random.Range(0, 2);
             Debug.Log("adding to the patterns" + r);
             pattern.Add(r);
         }
 
-        Debug.Log("count of pattern " + pattern.Count);
 
-        //Debug.Log(pattern[0]);
-        //atart();
-        atart(flashfs.playBack(pattern, Red, Blue));
-        // playBack();
+        Debug.Log("count of pattern " + pattern.Count);
+        atart(flashfs.playBack(pattern, Red, Blue, Green, Yellow));
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       /* if (updatescore == true)
-        {
-            count = count + 5;
-            countscore = GameObject.Find("Canvas/CounterScore").transform;
-            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
-            updatescore = false;
-        }*/
+
     }
 
     public void atart(IEnumerator coroutineMethod)
@@ -92,6 +106,7 @@ public class Main0 : MonoBehaviour
     }
     public void notatart(IEnumerator coroutineMethod)
     {
+        Debug.Log("inside notatart");
         play_Back = true;
         UnityEngine.WSA.Application.InvokeOnAppThread(() =>
         {
@@ -103,9 +118,8 @@ public class Main0 : MonoBehaviour
 
     public void testCorrect(int x)
     {
-        Debug.Log("this is the value of onIntList" + onInList);
+        Debug.Log("this is the value of onIntList " + onInList);
         Debug.Log("pattern to test: " + x);
-        Debug.Log("this is the pattern on the list: " + pattern[onInList]);
         if (play_Back == true)
         {
             return;
@@ -114,12 +128,7 @@ public class Main0 : MonoBehaviour
         {
             Debug.Log("in pattern oninlist");
             onInList++;
-            //___________________
-            //updatescore = true;
-           // Update();
-            //__________________
-           
-            //countingCorrectPattern++;
+
             Debug.Log("counting correct pattern " + countingCorrectPattern);
             Debug.Log("oninlist " + onInList);
         }
@@ -128,23 +137,42 @@ public class Main0 : MonoBehaviour
             Debug.Log("you lose");
             onInList = 0;
             countingCorrectPattern = 1;
-
+           
             pattern = new List<int>();
+            Debug.Log("before setting active");
+            Red = GameObject.Find("Canvas/Cubes/Red0");
+            Blue = GameObject.Find("Canvas/Cubes/Blue0");
+            Yellow = GameObject.Find("Canvas/Cubes/Yellow");
+            Green = GameObject.Find("Canvas/Cubes/Green");
             Red.SetActive(false);
             Blue.SetActive(false);
+            Yellow.SetActive(false);
+            Green.SetActive(false);
+
+            RestartButton = GameObject.Find("Canvas/Restart");
             RestartButton.GetComponent<Button>().interactable = true;
-            //Yellow.SetActive(false);
-            //Green.SetActive(false);
-            //___________________________
+
+            Debug.Log("after setting active");
+
             score = count;
-            
+            Debug.Log("before getting component");
             playerscore.GetComponent<Text>().text = "Score: " + score.ToString();
 
-            
-            
-            //___________________________
+            if (score > HighScore)
+            {
 
-            //StartCoroutine(playBack());
+                string s = nick+ "," +score.ToString();
+                File.WriteAllText(@"Assets\Scripts\TextFile2.txt", s);
+                Highscore.GetComponent<Text>().text = "New HighScore"+"\n"+ nick+"\t"+score.ToString();
+            }
+            else
+            {
+                string s = "HighScore:"+"\n"+previousscore[0] + "\t" + previousscore[1];
+                Highscore.GetComponent<Text>().text = s;
+            }
+
+            Debug.Log("after getting component");
+            resetScore();
         }
 
 
@@ -153,29 +181,31 @@ public class Main0 : MonoBehaviour
             count = count + 5;
             Debug.Log("before");
             Debug.Log(count);
-            //countscore = GameObject.Find("Canvas/CounterScore").transform;
-            countscore.GetComponent<Text>().text = "Score: " + count.ToString();
+
             Debug.Log("after");
             Debug.Log(count);
-            int r = Random.Range(0, 2)*2;
+            int r;
+            if (countingCorrectPattern <= 3)
+            {
+                r = Random.Range(0, 2);
+            }
+            else
+            {
+                r = Random.Range(0, 4);
+            }
             pattern.Add(r);
             onInList = 0;
             countingCorrectPattern++;
-            if(countingCorrectPattern >3)
+
+            /*if (countingCorrectPattern > 3)
             {
-               
                 Debug.Log("counting correct over 3 " + countingCorrectPattern);
                 SceneManager.LoadScene("BeatMyApp");
-            }
-            
-            else{
-                Debug.Log("the number of correct pattern less than 4 " + countingCorrectPattern);
-
-                //SceneManager.LoadScene("level0");
-                notatart(flashfs.playBack(pattern, Red, Blue));
-                atart(flashfs.playBack(pattern, Red, Blue));
-
-            }   
+            }*/
+            //else{
+            SceneManager.LoadScene("level0");
+            Debug.Log("made it past notatart and load scene and atart");
+            // }   
 
         }
 
@@ -201,7 +231,7 @@ public class Main0 : MonoBehaviour
 
     public void setScore()
     {
-        count = count+5;
+        count = count + 5;
     }
     public void resetScore()
     {
@@ -215,5 +245,7 @@ public class Main0 : MonoBehaviour
     {
         pattern = new List<int>();
     }
-    
+
+   
+
 }
