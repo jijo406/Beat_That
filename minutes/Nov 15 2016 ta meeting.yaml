@@ -3,7 +3,7 @@ meeting_type: Group
 attendance: [<erickher>, <rchan6>, <satnamsi> ]
 absent: [<jjoseph8>]
 excused_absences: [ # Any legitamite excuses for absent team members
-  {ubit: <>, reason: },
+  {ubit: <jjoseph8>, reason: work scheduling conflict. },
   ]
 task_progress: [ # All group members must be included here even if they haven't made any progress since the last meeting
   {ubit: <erickher>, progress: Started making the android app for sprint 4.  Outlined how it is supposed to work and how it needs to be implemented. },
