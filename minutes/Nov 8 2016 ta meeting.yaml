@@ -1,0 +1,18 @@
+date: November 8, 2016
+meeting_type: Group
+attendance: [<erickher>, <jjoseph8>, <satnamsi> ]
+absent: [<rchan6>]
+excused_absences: [ # Any legitamite excuses for absent team members
+  {ubit: <rchan6>, reason: Nanosat },
+  ]
+task_progress: [ # All group members must be included here even if they haven't made any progress since the last meeting
+  {ubit: <erickher>, progress: Working on app with Reggie. Designing android app concept. },
+  {ubit: <jjoseph8>, progress: Looking up sql data bases for visual studio and virtual keyboard },
+  {ubit: <satnamsi>, progress: Setting up webpage to display database highscore },
+  {ubit: <rchan6>, progress:   Wokring on the android app with Erick also on concept},
+  ]
+issues: [ # Post any issues here. Issues that cannot be addressed by the group should especially be included
+  {ubit: <>, issue: },
+  {ubit: <>, issue: }
+  ]
+Notes:  |
