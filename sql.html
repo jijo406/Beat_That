@@ -1,0 +1,38 @@
+Code i wrote to connect sql and and my website didnt work it 
+
+<html>
+<head>
+<title>Display Data into DB</title>
+table{
+	border : 2px solid red;
+	backround-color: #FFC;
+}
+th{
+	border-bottom: 5px solid #000;
+}
+td{
+	border-bottom: 2px solid #666;
+}
+</style>
+</head>
+<body>
+<h1>Display Data from DB </h1>
+
+<?php
+include('connect-mysql.php')
+$sqlget = "SELECT * FROM people";
+$sqldata = mysqli_query($dbcon, $sqlget) or die('error getting');
+echo "<table>";
+echo "<tr><th>Nickname</th><th>High Score</th></tr>
+while($row = mysqli_fetch_array($swldata, MYSQLI_ASSOC)){
+	ECHO "<tr><td>";
+	echo $row['nickname'];
+	echo "</td><td>";
+	echo $row['highscore'];
+	ehco "</td></tr>";
+}
+echo "<table>";
+?>
+
+</body>
+</html>
