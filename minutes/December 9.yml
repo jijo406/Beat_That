@@ -1,0 +1,17 @@
+date: December 9, 2016
+meeting_type: Group
+attendance: [<erickher>, <jjoseph8>, <satnamsi>, <rchan6> ]
+absent: []
+excused_absences: [ # Any legitamite excuses for absent team members
+  {ubit: },
+  ]
+task_progress: [ # All group members must be included here even if they haven't made any progress since the last meeting
+  {ubit: <erickher>, progress: android app deployed and documentation for android app done, working on documentation for hololens},
+  {ubit: <jjoseph8>, progress: working on deploying hololens game to window store},
+  {ubit: <satnamsi>, progress: deployment of website done and documentation for website done},
+  {ubit: <rchan6>, progress:   android app deployed and documentation for android app done},
+  ]
+issues: [ # Post any issues here. Issues that cannot be addressed by the group should especially be included
+  {ubit: <jjoseph8>, issue: deployed to window store but was rejected, trying again},
+  ]
+Notes:  |
